@@ -5,6 +5,11 @@ import Toolbar from "@material-ui/core/Toolbar";
 import IconButton from "@material-ui/core/IconButton";
 import Typography from "@material-ui/core/Typography";
 import Button from "@material-ui/core/Button";
+import {
+    Switch,
+    Route,
+    Link
+} from "react-router-dom";
 
 const useStyles = makeStyles(theme => ({
     toolbar: {
@@ -17,7 +22,8 @@ function Menu() {
     return (
         <AppBar>
             <Toolbar className={classes.toolbar}>
-                <Button color="inherit">Login</Button>
+                <Link to={"/"}>adsadssa</Link>
+                <Link to={"/search"}>adshf</Link>
             </Toolbar>
         </AppBar>
     );
