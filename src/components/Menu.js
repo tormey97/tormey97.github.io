@@ -6,8 +6,6 @@ import IconButton from "@material-ui/core/IconButton";
 import Typography from "@material-ui/core/Typography";
 import Button from "@material-ui/core/Button";
 import {
-    Switch,
-    Route,
     Link
 } from "react-router-dom";
 
@@ -22,8 +20,8 @@ function Menu() {
     return (
         <AppBar>
             <Toolbar className={classes.toolbar}>
-                <Link to={"/"}>adsadssa</Link>
-                <Link to={"/search"}>adshf</Link>
+                <Link to={"/"}><Button>Data story</Button></Link>
+                <Link to={"/search"}><Button>Recipe search</Button></Link>
             </Toolbar>
         </AppBar>
     );

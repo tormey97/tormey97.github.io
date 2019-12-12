@@ -1,48 +1,17 @@
 import React from 'react';
-import makeStyles from "@material-ui/core/styles/makeStyles";
 import Typography from "@material-ui/core/Typography";
 import Divider from "@material-ui/core/Divider/Divider";
 import Tabs from "@material-ui/core/Tabs/Tabs";
 import Tab from "@material-ui/core/Tab/Tab";
 import AppBar from "@material-ui/core/AppBar/AppBar";
 import classNames from "classnames"
+import useStyles from "../styles/main"
 
-const useStyles = makeStyles(theme => {
-    console.log(theme);
-    return ({
-    section: {
-        padding: "0 15% 0 15%",
-        marginTop: 40
-    },
-    headerSection: {
-        height: 200,
-        textAlign: "center",
-        backgroundColor: theme.palette.primary.dark,
-        color: "#FFF",
-        display: "flex",
-        justifyContent: "center",
-        alignItems: "center",
-        marginBottom: 20
-    },
-    mainText: {
-        fontSize: "20px"
-    },
-    tabPanel: {
-        height: 100
-    },
-    footer: {
-        backgroundColor: "#999",
-        height: 100,
-        color: theme.palette.getContrastText(theme.palette.primary.dark)
-    },
-    toolbar: theme.mixins.toolbar,
-})});
-
-function TabPanel({value, currentIndex}) {
+function TabPanel({value, currentIndex, children}) {
     const classes = useStyles();
     return (
-        <div className={classes.tabPanel} style={{display: value === currentIndex}}>
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ult Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ult Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ult {value}
+        <div className={classes.tabSection} style={{display: value === currentIndex ? "block" : "none"}}>
+            {children}
         </div>
     )
 }
@@ -110,7 +79,30 @@ function DataStory() {
                         <Tab label={"Omega 3 deficiency"}/>
                     </Tabs>
                 </AppBar>
-                <TabPanel value={selectedDiet}/>
+                <TabPanel value={0} currentIndex={selectedDiet}>
+                    <Typography variant={"h4"}>
+                        Vegan diet
+                    </Typography>
+                    <Divider/>
+
+                    <Typography className={classes.mainText}>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ultricies interdum ex at efficitur. Ut vitae ante in ipsum consectetur gravida eget vitae sapien. Quisque semper suscipit mi quis volutpat. Donec ligula sem, semper sit amet est eu, tempor faucibus ex. Phasellus lacinia venenatis nunc id volutpat. Fusce quis lacus ut risus semper consectetur eu ac nulla. Suspendisse bibendum dui libero, vitae cursus tellus pharetra ut.
+                            Curabitur at laoreet eros. Sed facilisis eget orci vel bibendum. Praesent urna sem, sollicitudin luctus luctus non, pharetra a erat. Nullam in velit id neque pretium fringilla. Etiam sodales hendrerit sodales. Phasellus sagittis elit id enim scelerisque, quis sollicitudin metus finibus. In hac habitasse platea dictumst. Praesent in neque euismod, suscipit enim nec, dapibus neque. Nullam varius, tellus non imperdiet gravida, orci metus varius sem, sed interdum mauris lorem sed dui. Integer nec nisl accumsan, auctor nisi vel, ultricies nisl.</p>
+                    </Typography>
+                </TabPanel>
+                <TabPanel value={1} currentIndex={selectedDiet}>
+                    This is the ... gluten free diet?
+                </TabPanel>
+                <TabPanel value={2} currentIndex={selectedDiet}>
+                    Milk
+                </TabPanel>
+                <TabPanel value={3} currentIndex={selectedDiet}>
+                    Iron deficiency
+                </TabPanel>
+                <TabPanel value={4} currentIndex={selectedDiet}>
+                    Salmon
+                </TabPanel>
+
             </div>
 
             <div className={classes.section}>
@@ -123,10 +115,6 @@ function DataStory() {
                         Curabitur at laoreet eros. Sed facilisis eget orci vel bibendum. Praesent urna sem, sollicitudin luctus luctus non, pharetra a erat. Nullam in velit id neque pretium fringilla. Etiam sodales hendrerit sodales. Phasellus sagittis elit id enim scelerisque, quis sollicitudin metus finibus. In hac habitasse platea dictumst. Praesent in neque euismod, suscipit enim nec, dapibus neque. Nullam varius, tellus non imperdiet gravida, orci metus varius sem, sed interdum mauris lorem sed dui. Integer nec nisl accumsan, auctor nisi vel, ultricies nisl.</p>
                 </Typography>
             </div>
-
-            <div className={classNames(classes.section, classes.footer)}>
-            </div>
-
         </div>
     );
 }
