@@ -43,6 +43,10 @@ function DataStory() {
                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ultricies interdum ex at efficitur. Ut vitae ante in ipsum consectetur gravida eget vitae sapien. Quisque semper suscipit mi quis volutpat. Donec ligula sem, semper sit amet est eu, tempor faucibus ex. Phasellus lacinia venenatis nunc id volutpat. Fusce quis lacus ut risus semper consectetur eu ac nulla. Suspendisse bibendum dui libero, vitae cursus tellus pharetra ut.
                         Curabitur at laoreet eros. Sed facilisis eget orci vel bibendum. Praesent urna sem, sollicitudin luctus luctus non, pharetra a erat. Nullam in velit id neque pretium fringilla. Etiam sodales hendrerit sodales. Phasellus sagittis elit id enim scelerisque, quis sollicitudin metus finibus. In hac habitasse platea dictumst. Praesent in neque euismod, suscipit enim nec, dapibus neque. Nullam varius, tellus non imperdiet gravida, orci metus varius sem, sed interdum mauris lorem sed dui. Integer nec nisl accumsan, auctor nisi vel, ultricies nisl.</p>
                 </Typography>
+
+                <iframe width={1000} height={500} src={"./foodpyramid.html"}/>
+
+
             </div>
 
             <div className={classes.section}>
@@ -54,6 +58,7 @@ function DataStory() {
                     <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ultricies interdum ex at efficitur. Ut vitae ante in ipsum consectetur gravida eget vitae sapien. Quisque semper suscipit mi quis volutpat. Donec ligula sem, semper sit amet est eu, tempor faucibus ex. Phasellus lacinia venenatis nunc id volutpat. Fusce quis lacus ut risus semper consectetur eu ac nulla. Suspendisse bibendum dui libero, vitae cursus tellus pharetra ut.
                         Curabitur at laoreet eros. Sed facilisis eget orci vel bibendum. Praesent urna sem, sollicitudin luctus luctus non, pharetra a erat. Nullam in velit id neque pretium fringilla. Etiam sodales hendrerit sodales. Phasellus sagittis elit id enim scelerisque, quis sollicitudin metus finibus. In hac habitasse platea dictumst. Praesent in neque euismod, suscipit enim nec, dapibus neque. Nullam varius, tellus non imperdiet gravida, orci metus varius sem, sed interdum mauris lorem sed dui. Integer nec nisl accumsan, auctor nisi vel, ultricies nisl.</p>
                 </Typography>
+                <iframe width={1000} height={500} src={"./gant1.html"}/>
             </div>
 
             <div className={classes.section}>
@@ -71,12 +76,16 @@ function DataStory() {
                     <Tabs
                         value={selectedDiet}
                         onChange={changeDiet}
-                        variant={"fullwidth"}>
+                        variant={"scrollable"}
+                        scrollButtons={"auto"}
+                        centered>
                         <Tab index label={"Vegan"}/>
                         <Tab label={"Gluten free"}/>
                         <Tab label={"Lactose free"}/>
                         <Tab label={"Iron deficiency"}/>
                         <Tab label={"Omega 3 deficiency"}/>
+                        <Tab label={"Spicy"}/>
+                        <Tab label={"High in magnesium"}/>
                     </Tabs>
                 </AppBar>
                 <TabPanel value={0} currentIndex={selectedDiet}>
@@ -111,9 +120,12 @@ function DataStory() {
                 </Typography>
                 <Divider/>
                 <Typography className={classes.mainText}>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ultricies interdum ex at efficitur. Ut vitae ante in ipsum consectetur gravida eget vitae sapien. Quisque semper suscipit mi quis volutpat. Donec ligula sem, semper sit amet est eu, tempor faucibus ex. Phasellus lacinia venenatis nunc id volutpat. Fusce quis lacus ut risus semper consectetur eu ac nulla. Suspendisse bibendum dui libero, vitae cursus tellus pharetra ut.
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisc  ing elit. Praesent ultricies interdum ex at efficitur. Ut vitae ante in ipsum consectetur gravida eget vitae sapien. Quisque semper suscipit mi quis volutpat. Donec ligula sem, semper sit amet est eu, tempor faucibus ex. Phasellus lacinia venenatis nunc id volutpat. Fusce quis lacus ut risus semper consectetur eu ac nulla. Suspendisse bibendum dui libero, vitae cursus tellus pharetra ut.
                         Curabitur at laoreet eros. Sed facilisis eget orci vel bibendum. Praesent urna sem, sollicitudin luctus luctus non, pharetra a erat. Nullam in velit id neque pretium fringilla. Etiam sodales hendrerit sodales. Phasellus sagittis elit id enim scelerisque, quis sollicitudin metus finibus. In hac habitasse platea dictumst. Praesent in neque euismod, suscipit enim nec, dapibus neque. Nullam varius, tellus non imperdiet gravida, orci metus varius sem, sed interdum mauris lorem sed dui. Integer nec nisl accumsan, auctor nisi vel, ultricies nisl.</p>
                 </Typography>
+                <iframe width={1000} height={500} src={"./gant2.html"}/>
+                <iframe width={1000} height={500} src={"./spainPyramid.html"}/>
+                <iframe width={1000} height={500} src={"./UKPyramid.html"}/>
             </div>
         </div>
     );
