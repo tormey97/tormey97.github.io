@@ -98,10 +98,13 @@ function DataStory() {
                     </Typography>
                 </TabPanel>
                 <TabPanel value={1} currentIndex={selectedDiet}>
+
                     This is the ... gluten free diet?
                 </TabPanel>
                 <TabPanel value={2} currentIndex={selectedDiet}>
-                    Milk
+                    <div style={{float: "right"}}>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ultricies interdum ex at efficitur. Ut vitae ante in ipsum consectetur gravida eget vitae sapien. Quisque semper suscipit mi quis volutpat. Donec ligula sem, semper sit amet est eu, tempor faucibus ex. Phasellus lacinia venenatis nunc id volutpat. Fusce quis lacus ut risus semper consectetur eu ac nulla. Suspendisse bibendum dui libero, vitae cursus tellus pharetra ut.
+                        Curabitur at laoreet eros. Sed facilisis eget orci vel bibendum. Praesent urna sem, sollicitudin luctus luctus non, pharet</div>
+                    <iframe width={600} height={550} frameBorder={0} src={"./lactoseFreeHealthyness.html"}/>
                 </TabPanel>
                 <TabPanel value={3} currentIndex={selectedDiet}>
                     Iron deficiency
