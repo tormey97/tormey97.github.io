@@ -30,6 +30,9 @@ const useStyles = makeStyles(theme => {
             height: 100,
         },
         toolbar: theme.mixins.toolbar,
+        factSheet: {
+            padding: "20px 0 0 0"
+        }
     })});
 
 export default useStyles;

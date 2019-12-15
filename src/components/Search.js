@@ -18,79 +18,36 @@ import TableBody from "@material-ui/core/TableBody/TableBody";
 
 function Search() {
     const classes = useStyles();
-    const [foundRecipes, setFoundRecipes] = React.useState([]);
-    const [currentIngredient, setCurrentIngredient] = React.useState(null);
+    const [currentIngredient, setCurrentIngredient] = React.useState("Salmon");
     const searchValues = [
         "Test", "Salmon", "Salt", "Hey", "Tea", "Large", "Telephone"
     ];
 
-    const recipes = [
-        {name: "pesto", ingredients: ["Salmon", "Salt", "Tea"]},
-        {name: "tortilla", ingredients: ["Hey", "Salmon", "Telephone"]},
-        {name: "tortilla2", ingredients: ["Hey", "Salmon", "Telephone"]},
-        {name: "tortilla3", ingredients: ["Hey", "Salmon", "Telephone", "Large"]},
-        {name: "tortilla", ingredients: ["Hey", "Salmon", "Telephone"]},
-        {name: "tortilla2", ingredients: ["Hey", "Salmon", "Telephone"]},
-        {name: "tortilla3", ingredients: ["Hey", "Salmon", "Telephone", "Large"]},
-        {name: "tortilla", ingredients: ["Hey", "Salmon", "Telephone"]},
-        {name: "tortilla2", ingredients: ["Hey", "Salmon", "Telephone"]},
-        {name: "tortilla3", ingredients: ["Hey", "Salmon", "Telephone", "Large"]},
-        {name: "tortilla", ingredients: ["Hey", "Salmon", "Telephone"]},
-        {name: "tortilla2", ingredients: ["Hey", "Salmon", "Telephone"]},
-        {name: "tortilla3", ingredients: ["Hey", "Salmon", "Telephone", "Large"]},
-        {name: "tortilla", ingredients: ["Hey", "Salmon", "Telephone"]},
-        {name: "tortilla2", ingredients: ["Hey", "Salmon", "Telephone"]},
-        {name: "tortilla3", ingredients: ["Hey", "Salmon", "Telephone", "Large"]},
-        {name: "tortilla", ingredients: ["Hey", "Salmon", "Telephone"]},
-        {name: "tortilla2", ingredients: ["Hey", "Salmon", "Telephone"]},
-        {name: "tortilla3", ingredients: ["Hey", "Salmon", "Telephone", "Large"]},
-        {name: "tortilla", ingredients: ["Hey", "Salmon", "Telephone"]},
-        {name: "tortilla2", ingredients: ["Hey", "Salmon", "Telephone"]},
-        {name: "tortilla3", ingredients: ["Hey", "Salmon", "Telephone", "Large"]},
-        {name: "tortilla", ingredients: ["Hey", "Salmon", "Telephone"]},
-        {name: "tortilla2", ingredients: ["Hey", "Salmon", "Telephone"]},
-        {name: "tortilla3", ingredients: ["Hey", "Salmon", "Telephone", "Large"]},
-        {name: "tortilla", ingredients: ["Hey", "Salmon", "Telephone"]},
-        {name: "tortilla2", ingredients: ["Hey", "Salmon", "Telephone"]},
-        {name: "tortilla3", ingredients: ["Hey", "Salmon", "Telephone", "Large"]},
-    ];
-
-    const selectIngredient = (event, newValue) => {
-        searchForRecipes(event, newValue);
-        setCurrentIngredient(newValue);
+    const corrMatrix = {
     };
 
-    const searchForRecipes = (event, newValue) => {
-        let ingredient = newValue;
-        if (ingredient === null) {
-            return
+    for (let i in searchValues) {
+        corrMatrix[searchValues[i]] = {};
+        for (let j in searchValues) {
+            corrMatrix[searchValues[i]][searchValues[j]] = Math.random();
+            console.log(corrMatrix)
         }
-        let matches = [];
-        for (let i in recipes) {
-            let match = true;
-            if (!recipes[i].ingredients.includes(ingredient)) {
-                match = false;
-                break
-            }
-            if (match) {
-                matches.push(i)
-            }
-        }
-        setFoundRecipes(matches)
+    }
+
+    const selectIngredient = (event, newValue) => {
+        setCurrentIngredient(newValue);
     };
 
     return (
         <div>
             <div className={classes.toolbar}/>
             <div className={classes.section}>
-                <Typography variant={"h4"}>
+                <Typography variant={"h4"} style={{textAlign: "center"}}>
                     Search tool
                 </Typography>
                 <Divider/>
                 <Typography>
-                    <p>
-                        In this section we present a tool that allows the user to input ingredients and output recipes.
-                    </p>
+                    In this section we present a tool that allows the user to input ingredients and output recipes.
                 </Typography>
             </div>
             <div className={classes.section}>
@@ -110,63 +67,44 @@ function Search() {
                 />
                 {
                     (currentIngredient === null) ? <></> :
-                        <div>
-                            You've selected {currentIngredient}...
-                            <List>
-                                {foundRecipes.map(value => {
-                                    return (
-                                        <ListItem button>
-                                            {recipes[value].name}
-                                        </ListItem>
-                                    )
-                                })}
-                            </List>
+                        <div className={classes.factSheet}>
                             <Table>
                                 <TableHead>
                                     <TableRow>
                                         <TableCell>
-                                            Column 1
+                                            Ingredient
                                         </TableCell>
                                         <TableCell>
-                                            Column 2
+                                            Ratio 1
                                         </TableCell>
                                         <TableCell>
-                                            Column 3
+                                            Ratio 2
                                         </TableCell>
                                         <TableCell>
-                                            Column 4
+                                            Ratio change
                                         </TableCell>
                                     </TableRow>
                                 </TableHead>
                                 <TableBody>
-                                    <TableRow>
-                                        <TableCell>
-                                            Column 1
-                                        </TableCell>
-                                        <TableCell>
-                                            Column 2
-                                        </TableCell>
-                                        <TableCell>
-                                            Column 3
-                                        </TableCell>
-                                        <TableCell>
-                                            Column 4
-                                        </TableCell>
-                                    </TableRow>
-                                    <TableRow>
-                                        <TableCell>
-                                            Column 1
-                                        </TableCell>
-                                        <TableCell>
-                                            Column 2
-                                        </TableCell>
-                                        <TableCell>
-                                            Column 3
-                                        </TableCell>
-                                        <TableCell>
-                                            Column 4
-                                        </TableCell>
-                                    </TableRow>
+                                    {
+                                        searchValues.map(value => {
+                                            console.log(value, currentIngredient, corrMatrix[currentIngredient][value], corrMatrix)
+                                            return <TableRow>
+                                                <TableCell>
+                                                    {value}
+                                                </TableCell>
+                                                <TableCell>
+                                                    {corrMatrix[currentIngredient][value]}
+                                                </TableCell>
+                                                <TableCell>
+                                                    {corrMatrix[currentIngredient][value]}
+                                                </TableCell>
+                                                <TableCell>
+                                                    {corrMatrix[currentIngredient][value]}
+                                                </TableCell>
+                                            </TableRow>
+                                        })
+                                    }
                                 </TableBody>
                             </Table>
                         </div>

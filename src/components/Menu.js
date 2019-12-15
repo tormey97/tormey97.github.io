@@ -27,9 +27,9 @@ function Menu() {
     return (
         <AppBar>
             <Toolbar className={classes.toolbar}>
-                <Link className={classes.link} to={"/"}><Button className={classes.linkButton}>Data story</Button></Link>
-                <Link className={classes.link} to={"/"}><Button className={classes.linkButton}>OpenFoodFacts data story</Button></Link>
-                <Link className={classes.link} to={"/search"}><Button className={classes.linkButton}>Ingredient search</Button></Link>
+                <Link className={classes.link} to={"./ada-data-story"}><Button className={classes.linkButton}>Data story</Button></Link>
+                <Link className={classes.link} to={"./ada-data-story"}><Button className={classes.linkButton}>OpenFoodFacts data story</Button></Link>
+                <Link className={classes.link} to={"./search"}><Button className={classes.linkButton}>Ingredient search</Button></Link>
             </Toolbar>
         </AppBar>
     );

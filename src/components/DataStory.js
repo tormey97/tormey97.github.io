@@ -4,7 +4,6 @@ import Divider from "@material-ui/core/Divider/Divider";
 import Tabs from "@material-ui/core/Tabs/Tabs";
 import Tab from "@material-ui/core/Tab/Tab";
 import AppBar from "@material-ui/core/AppBar/AppBar";
-import classNames from "classnames"
 import useStyles from "../styles/main"
 
 function TabPanel({value, currentIndex, children}) {
@@ -40,11 +39,10 @@ function DataStory() {
                 <Divider/>
 
                 <Typography className={classes.mainText}>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ultricies interdum ex at efficitur. Ut vitae ante in ipsum consectetur gravida eget vitae sapien. Quisque semper suscipit mi quis volutpat. Donec ligula sem, semper sit amet est eu, tempor faucibus ex. Phasellus lacinia venenatis nunc id volutpat. Fusce quis lacus ut risus semper consectetur eu ac nulla. Suspendisse bibendum dui libero, vitae cursus tellus pharetra ut.
-                        Curabitur at laoreet eros. Sed facilisis eget orci vel bibendum. Praesent urna sem, sollicitudin luctus luctus non, pharetra a erat. Nullam in velit id neque pretium fringilla. Etiam sodales hendrerit sodales. Phasellus sagittis elit id enim scelerisque, quis sollicitudin metus finibus. In hac habitasse platea dictumst. Praesent in neque euismod, suscipit enim nec, dapibus neque. Nullam varius, tellus non imperdiet gravida, orci metus varius sem, sed interdum mauris lorem sed dui. Integer nec nisl accumsan, auctor nisi vel, ultricies nisl.</p>
+                    <p>haha look at my shitty graph</p>
                 </Typography>
 
-                <iframe width={1000} height={500} src={"./foodpyramid.html"}/>
+                <iframe width={1000} height={500} frameBorder={0} src={"./foodpyramid.html"}/>
 
 
             </div>
@@ -120,12 +118,12 @@ function DataStory() {
                 </Typography>
                 <Divider/>
                 <Typography className={classes.mainText}>
-                    <p>Lorem ipsum dolor sit amet, consectetur adipisc  ing elit. Praesent ultricies interdum ex at efficitur. Ut vitae ante in ipsum consectetur gravida eget vitae sapien. Quisque semper suscipit mi quis volutpat. Donec ligula sem, semper sit amet est eu, tempor faucibus ex. Phasellus lacinia venenatis nunc id volutpat. Fusce quis lacus ut risus semper consectetur eu ac nulla. Suspendisse bibendum dui libero, vitae cursus tellus pharetra ut.
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ultricies interdum ex at efficitur. Ut vitae ante in ipsum consectetur gravida eget vitae sapien. Quisque semper suscipit mi quis volutpat. Donec ligula sem, semper sit amet est eu, tempor faucibus ex. Phasellus lacinia venenatis nunc id volutpat. Fusce quis lacus ut risus semper consectetur eu ac nulla. Suspendisse bibendum dui libero, vitae cursus tellus pharetra ut.
                         Curabitur at laoreet eros. Sed facilisis eget orci vel bibendum. Praesent urna sem, sollicitudin luctus luctus non, pharetra a erat. Nullam in velit id neque pretium fringilla. Etiam sodales hendrerit sodales. Phasellus sagittis elit id enim scelerisque, quis sollicitudin metus finibus. In hac habitasse platea dictumst. Praesent in neque euismod, suscipit enim nec, dapibus neque. Nullam varius, tellus non imperdiet gravida, orci metus varius sem, sed interdum mauris lorem sed dui. Integer nec nisl accumsan, auctor nisi vel, ultricies nisl.</p>
                 </Typography>
-                <iframe width={1000} height={500} src={"./gant2.html"}/>
-                <iframe width={1000} height={500} src={"./spainPyramid.html"}/>
-                <iframe width={1000} height={500} src={"./UKPyramid.html"}/>
+                <iframe width={1000} height={500} frameBorder={0} src={"./gant2.html"}/>
+                <iframe width={1000} height={500} frameBorder={0} src={"./spainPyramid.html"}/>
+                <iframe width={1000} height={500} frameBorder={0} src={"./UKPyramid.html"}/>
             </div>
         </div>
     );
