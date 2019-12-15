@@ -10,10 +10,16 @@ import InputAdornment from "@material-ui/core/InputAdornment/InputAdornment";
 import Autocomplete from "@material-ui/lab/Autocomplete/Autocomplete";
 import List from "@material-ui/core/List/List";
 import ListItem from "@material-ui/core/ListItem/ListItem";
+import Table from "@material-ui/core/Table/Table";
+import TableHead from "@material-ui/core/TableHead/TableHead";
+import TableRow from "@material-ui/core/TableRow/TableRow";
+import TableCell from "@material-ui/core/TableCell/TableCell";
+import TableBody from "@material-ui/core/TableBody/TableBody";
 
 function Search() {
     const classes = useStyles();
     const [foundRecipes, setFoundRecipes] = React.useState([]);
+    const [currentIngredient, setCurrentIngredient] = React.useState(null);
     const searchValues = [
         "Test", "Salmon", "Salt", "Hey", "Tea", "Large", "Telephone"
     ];
@@ -49,19 +55,22 @@ function Search() {
         {name: "tortilla3", ingredients: ["Hey", "Salmon", "Telephone", "Large"]},
     ];
 
+    const selectIngredient = (event, newValue) => {
+        searchForRecipes(event, newValue);
+        setCurrentIngredient(newValue);
+    };
+
     const searchForRecipes = (event, newValue) => {
-        let ingredients = newValue;
-        if (ingredients.length === 0) {
+        let ingredient = newValue;
+        if (ingredient === null) {
             return
         }
         let matches = [];
         for (let i in recipes) {
             let match = true;
-            for (let j in ingredients) {
-                if (!recipes[i].ingredients.includes(ingredients[j])) {
-                    match = false;
-                    break
-                }
+            if (!recipes[i].ingredients.includes(ingredient)) {
+                match = false;
+                break
             }
             if (match) {
                 matches.push(i)
@@ -86,8 +95,6 @@ function Search() {
             </div>
             <div className={classes.section}>
                 <Autocomplete
-                    multiple
-                    id="tags-standard"
                     options={searchValues}
                     getOptionLabel={option => option}
                     renderInput={params => (
@@ -99,19 +106,72 @@ function Search() {
                             fullWidth
                         />
                     )}
-                    onChange={searchForRecipes}
+                    onChange={selectIngredient}
                 />
-                <List>
-                    {foundRecipes.map(value => {
-                        return (
-                            <ListItem button>
-                                {recipes[value].name}
-                            </ListItem>
-                        )
-                    })}
-                </List>
+                {
+                    (currentIngredient === null) ? <></> :
+                        <div>
+                            You've selected {currentIngredient}...
+                            <List>
+                                {foundRecipes.map(value => {
+                                    return (
+                                        <ListItem button>
+                                            {recipes[value].name}
+                                        </ListItem>
+                                    )
+                                })}
+                            </List>
+                            <Table>
+                                <TableHead>
+                                    <TableRow>
+                                        <TableCell>
+                                            Column 1
+                                        </TableCell>
+                                        <TableCell>
+                                            Column 2
+                                        </TableCell>
+                                        <TableCell>
+                                            Column 3
+                                        </TableCell>
+                                        <TableCell>
+                                            Column 4
+                                        </TableCell>
+                                    </TableRow>
+                                </TableHead>
+                                <TableBody>
+                                    <TableRow>
+                                        <TableCell>
+                                            Column 1
+                                        </TableCell>
+                                        <TableCell>
+                                            Column 2
+                                        </TableCell>
+                                        <TableCell>
+                                            Column 3
+                                        </TableCell>
+                                        <TableCell>
+                                            Column 4
+                                        </TableCell>
+                                    </TableRow>
+                                    <TableRow>
+                                        <TableCell>
+                                            Column 1
+                                        </TableCell>
+                                        <TableCell>
+                                            Column 2
+                                        </TableCell>
+                                        <TableCell>
+                                            Column 3
+                                        </TableCell>
+                                        <TableCell>
+                                            Column 4
+                                        </TableCell>
+                                    </TableRow>
+                                </TableBody>
+                            </Table>
+                        </div>
+                }
             </div>
-
         </div>
     );
 }

@@ -11,7 +11,14 @@ import {
 
 const useStyles = makeStyles(theme => ({
     toolbar: {
-        height: "2px"
+    },
+    link: {
+        textDecoration: "none",
+        textColor: "#FFF",
+    },
+
+    linkButton: {
+        color: "#FFF"
     }
 }));
 
@@ -20,8 +27,9 @@ function Menu() {
     return (
         <AppBar>
             <Toolbar className={classes.toolbar}>
-                <Link to={"/"}><Button>Data story</Button></Link>
-                <Link to={"/search"}><Button>Recipe search</Button></Link>
+                <Link className={classes.link} to={"/"}><Button className={classes.linkButton}>Data story</Button></Link>
+                <Link className={classes.link} to={"/"}><Button className={classes.linkButton}>OpenFoodFacts data story</Button></Link>
+                <Link className={classes.link} to={"/search"}><Button className={classes.linkButton}>Ingredient search</Button></Link>
             </Toolbar>
         </AppBar>
     );

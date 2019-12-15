@@ -5,8 +5,8 @@ import DataStory from "./components/DataStory";
 import MuiThemeProvider from '@material-ui/core/styles/MuiThemeProvider';
 import createMuiTheme from "@material-ui/core/styles/createMuiTheme";
 import useStyles from "./styles/main"
-import lightGreen from '@material-ui/core/colors/lightGreen';
-import green from '@material-ui/core/colors/green';
+import secondaryColor from '@material-ui/core/colors/green';
+import primaryColor from '@material-ui/core/colors/indigo';
 import {
     BrowserRouter as Router,
     Switch,
@@ -19,8 +19,8 @@ import Divider from "@material-ui/core/Divider/Divider";
 
 const theme = createMuiTheme({
     palette: {
-        primary: green,
-        secondary: lightGreen,
+        primary: primaryColor,
+        secondary: secondaryColor,
     },
 });
 
