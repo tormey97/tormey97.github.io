@@ -11,6 +11,7 @@ import {
 
 const useStyles = makeStyles(theme => ({
     toolbar: {
+        padding: "0 0 0 15%",
     },
     link: {
         textDecoration: "none",
