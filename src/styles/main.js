@@ -8,7 +8,7 @@ const useStyles = makeStyles(theme => {
             marginTop: 40
         },
         headerSection: {
-            height: 200,
+            height: 120,
             textAlign: "center",
             backgroundColor: theme.palette.primary.dark,
             color: "#FFF",
@@ -18,7 +18,7 @@ const useStyles = makeStyles(theme => {
             marginBottom: 20
         },
         mainText: {
-            fontSize: "20px"
+            fontSize: "16px",
         },
         tabSection: {
             marginTop: 10,
@@ -32,6 +32,9 @@ const useStyles = makeStyles(theme => {
         toolbar: theme.mixins.toolbar,
         factSheet: {
             padding: "20px 0 0 0"
+        },
+        dietCheckboxList: {
+            listStyleType: "none"
         }
     })});
 

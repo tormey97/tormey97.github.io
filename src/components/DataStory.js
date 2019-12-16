@@ -21,6 +21,7 @@ function DataStory() {
 
     const changeDiet = (event, value) => {
         console.log(value);
+
         setSelectedDiet(value)
     };
 
@@ -28,12 +29,12 @@ function DataStory() {
         <div>
             <div className={classes.toolbar}/>
             <div className={classes.headerSection}>
-                <Typography variant={"h2"}>
+                <Typography variant={"h4"}>
                     TITLE OF THE PROJECT
                 </Typography>
             </div>
             <div className={classes.section}>
-                <Typography variant={"h4"}>
+                <Typography variant={"h5"}>
                     Introduction
                 </Typography>
                 <Divider/>
@@ -48,7 +49,7 @@ function DataStory() {
             </div>
 
             <div className={classes.section}>
-                <Typography variant={"h4"}>
+                <Typography variant={"h5"}>
                     Second section
                 </Typography>
                 <Divider/>
@@ -60,7 +61,7 @@ function DataStory() {
             </div>
 
             <div className={classes.section}>
-                <Typography variant={"h4"}>
+                <Typography variant={"h5"}>
                     Diet analysis
                 </Typography>
                 <Divider/>
@@ -87,14 +88,12 @@ function DataStory() {
                     </Tabs>
                 </AppBar>
                 <TabPanel value={0} currentIndex={selectedDiet}>
-                    <Typography variant={"h4"}>
+                    <Typography variant={"h5"}>
                         Vegan diet
                     </Typography>
                     <Divider/>
-
                     <Typography className={classes.mainText}>
-                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Praesent ultricies interdum ex at efficitur. Ut vitae ante in ipsum consectetur gravida eget vitae sapien. Quisque semper suscipit mi quis volutpat. Donec ligula sem, semper sit amet est eu, tempor faucibus ex. Phasellus lacinia venenatis nunc id volutpat. Fusce quis lacus ut risus semper consectetur eu ac nulla. Suspendisse bibendum dui libero, vitae cursus tellus pharetra ut.
-                            Curabitur at laoreet eros. Sed facilisis eget orci vel bibendum. Praesent urna sem, sollicitudin luctus luctus non, pharetra a erat. Nullam in velit id neque pretium fringilla. Etiam sodales hendrerit sodales. Phasellus sagittis elit id enim scelerisque, quis sollicitudin metus finibus. In hac habitasse platea dictumst. Praesent in neque euismod, suscipit enim nec, dapibus neque. Nullam varius, tellus non imperdiet gravida, orci metus varius sem, sed interdum mauris lorem sed dui. Integer nec nisl accumsan, auctor nisi vel, ultricies nisl.</p>
+                        <p>What is veganism? Its whatever. This is an introduction.</p>
                     </Typography>
                 </TabPanel>
                 <TabPanel value={1} currentIndex={selectedDiet}>
@@ -116,7 +115,7 @@ function DataStory() {
             </div>
 
             <div className={classes.section}>
-                <Typography variant={"h4"}>
+                <Typography variant={"h5"}>
                     Another section
                 </Typography>
                 <Divider/>

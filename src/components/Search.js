@@ -15,24 +15,43 @@ import TableHead from "@material-ui/core/TableHead/TableHead";
 import TableRow from "@material-ui/core/TableRow/TableRow";
 import TableCell from "@material-ui/core/TableCell/TableCell";
 import TableBody from "@material-ui/core/TableBody/TableBody";
+import ingredientsData from "./ingredients"
+import dietFrequencyData from "./ingredientsInDiets"
+import correlationData from "./data"
+import Checkbox from "@material-ui/core/Checkbox/Checkbox";
+import Chip from "@material-ui/core/Chip/Chip";
+import {
+    BarChart, Bar, Brush, Cell, CartesianGrid, ReferenceLine, ReferenceDot,
+    XAxis, YAxis, Tooltip, Legend, ErrorBar, LabelList, Label
+} from 'recharts';
+
+const diets = [
+    "LactoseFree",
+    "GlutenFree",
+    "Vegan",
+    "Vegetarian",
+    "IronRich",
+    "Omega3Rich",
+    "MagnesiumRich",
+    "Spicy",
+    "Unhealthy"
+];
 
 function Search() {
     const classes = useStyles();
-    const [currentIngredient, setCurrentIngredient] = React.useState("Salmon");
-    const searchValues = [
-        "Test", "Salmon", "Salt", "Hey", "Tea", "Large", "Telephone"
-    ];
+    const [currentIngredient, setCurrentIngredient] = React.useState(null);
+    const searchValues = Object.keys(ingredientsData);
 
-    const corrMatrix = {
-    };
-
-    for (let i in searchValues) {
-        corrMatrix[searchValues[i]] = {};
-        for (let j in searchValues) {
-            corrMatrix[searchValues[i]][searchValues[j]] = Math.random();
-            console.log(corrMatrix)
+    const dietFreqData = [];
+    if (dietFrequencyData[currentIngredient] !== undefined) {
+        for (const [key, value] of Object.entries(dietFrequencyData[currentIngredient])) {
+            dietFreqData.push({
+                name: key, amountOfRecipes: value
+            })
         }
     }
+
+    console.log(dietFreqData)
 
     const selectIngredient = (event, newValue) => {
         setCurrentIngredient(newValue);
@@ -42,12 +61,12 @@ function Search() {
         <div>
             <div className={classes.toolbar}/>
             <div className={classes.section}>
-                <Typography variant={"h4"} style={{textAlign: "center"}}>
+                <Typography variant={"h5"}>
                     Search tool
                 </Typography>
                 <Divider/>
-                <Typography>
-                    In this section we present a tool that allows the user to input ingredients and output recipes.
+                <Typography className={classes.mainText}>
+                    <p>We've created a tool that can give the user some interesting information about a selection of ingredients.</p>
                 </Typography>
             </div>
             <div className={classes.section}>
@@ -68,6 +87,31 @@ function Search() {
                 {
                     (currentIngredient === null) ? <></> :
                         <div className={classes.factSheet}>
+                            <ul className={classes.dietCheckboxList}>
+                            {
+                                diets.map(diet => {
+                                    return (
+                                        <li style={{display: "inline", margin: 2}}>
+                                            <Chip label={diet} color={ingredientsData[currentIngredient.toLowerCase()][diet] === 1 ? "primary" : undefined}>
+                                            </Chip>
+                                        </li>
+                                        )
+                                })
+                            }
+                            </ul>
+                            <Typography>
+                                <p>The following bar graph shows how frequently <b>{currentIngredient}</b> is used in the recipes that fall into each dietary category:</p>
+                            </Typography>
+                            <BarChart width={800} height={400} data={dietFreqData}>
+                                <XAxis dataKey="name" tick={{fontSize: 12}} interval={0} />
+                                <YAxis>
+                                </YAxis>
+                                <Bar dataKey="amountOfRecipes" fill="#21B"/>
+                                <Tooltip />
+                            </BarChart>
+                            <Typography>
+                                <p>The following table shows how frequently <b>{currentIngredient}</b> occurs with all the other selected ingredients, as well as how often each ingredient occurs in recipes in general.</p>
+                            </Typography>
                             <Table>
                                 <TableHead>
                                     <TableRow>
@@ -75,34 +119,33 @@ function Search() {
                                             Ingredient
                                         </TableCell>
                                         <TableCell>
-                                            Ratio 1
+                                            Frequency with {currentIngredient}
                                         </TableCell>
                                         <TableCell>
-                                            Ratio 2
-                                        </TableCell>
-                                        <TableCell>
-                                            Ratio change
+                                            Overall frequency
                                         </TableCell>
                                     </TableRow>
                                 </TableHead>
                                 <TableBody>
                                     {
                                         searchValues.map(value => {
-                                            console.log(value, currentIngredient, corrMatrix[currentIngredient][value], corrMatrix)
-                                            return <TableRow>
-                                                <TableCell>
-                                                    {value}
-                                                </TableCell>
-                                                <TableCell>
-                                                    {corrMatrix[currentIngredient][value]}
-                                                </TableCell>
-                                                <TableCell>
-                                                    {corrMatrix[currentIngredient][value]}
-                                                </TableCell>
-                                                <TableCell>
-                                                    {corrMatrix[currentIngredient][value]}
-                                                </TableCell>
-                                            </TableRow>
+                                            if (value !== currentIngredient) {
+                                                return <TableRow>
+                                                    <TableCell>
+                                                        {value}
+                                                    </TableCell>
+                                                    <TableCell>
+                                                        {
+                                                            correlationData[currentIngredient][value] !== undefined ? correlationData[currentIngredient][value].toFixed(3) : 0
+                                                        }
+                                                    </TableCell>
+                                                    <TableCell>
+                                                        {(correlationData.general[value] / 100).toFixed(3)}
+                                                    </TableCell>
+                                                    <TableCell>
+                                                    </TableCell>
+                                                </TableRow>
+                                            }
                                         })
                                     }
                                 </TableBody>
