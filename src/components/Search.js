@@ -51,7 +51,7 @@ function Search() {
         }
     }
 
-    console.log(dietFreqData)
+    console.log(dietFreqData);
 
     const selectIngredient = (event, newValue) => {
         setCurrentIngredient(newValue);
@@ -124,6 +124,9 @@ function Search() {
                                         <TableCell>
                                             Overall frequency
                                         </TableCell>
+                                        <TableCell>
+                                            Relative frequency with {currentIngredient}
+                                        </TableCell>
                                     </TableRow>
                                 </TableHead>
                                 <TableBody>
@@ -143,6 +146,7 @@ function Search() {
                                                         {(correlationData.general[value] / 100).toFixed(3)}
                                                     </TableCell>
                                                     <TableCell>
+                                                        {correlationData[currentIngredient][value] / (correlationData.general[value] / 100)}
                                                     </TableCell>
                                                 </TableRow>
                                             }
