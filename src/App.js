@@ -31,10 +31,10 @@ function App() {
         <MuiThemeProvider theme={theme}>
             <Menu/>
             <Switch>
-                <Route path={"/search"}>
+                <Route path={process.env.PUBLIC_URL + "/search"}>
                     <Search/>
                 </Route>
-                <Route path={"/"}>
+                <Route path={process.env.PUBLIC_URL + "/"}>
                     <DataStory/>
                 </Route>
             </Switch>
